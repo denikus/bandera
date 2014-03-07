@@ -12,6 +12,7 @@ gem 'figaro'
 gem 'foundation-rails', '5.0.3.1'
 gem 'pg'
 gem 'slim-rails'
+gem 'rails-i18n'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :mri_20, :rbx]
@@ -29,6 +30,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'passenger'
   gem 'rspec-rails'
+  gem 'jazz_hands'
+  gem 'awesome_print'
 end
 group :test do
   gem 'capybara'
