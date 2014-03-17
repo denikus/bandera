@@ -1,0 +1,7 @@
+= form_for(resource) do |f|
+  h3= t("Add Video")
+  div.form-group
+    = f.label t("Youtube Video Url")
+    = f.text_field :url, :autofocus => true, class: 'form-control'
+  div.form-group
+    = f.submit 'Log in', :class => 'button right'

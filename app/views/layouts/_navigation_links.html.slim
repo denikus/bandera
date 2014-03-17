@@ -1,0 +1,17 @@
+li.active
+  a href="#{new_video_path}"
+    i.fa.fa-plus.fa-fw
+    = t("Add Video")
+/- if user_signed_in?
+/  li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
+/- else
+/  li= link_to 'Login', new_user_session_path
+/
+/- if user_signed_in?
+/  li= link_to 'Edit account', edit_user_registration_path
+/- else
+/  li= link_to 'Sign up', new_user_registration_path
+/
+/li
+/  .fb-login-button data-auto-logout-link="true" data-max-rows="1" data-show-faces="false" data-size="small" data-scope="basic_info,user_location"
+

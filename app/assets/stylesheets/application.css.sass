@@ -10,4 +10,23 @@
  *
  *= require_self
  *= require_tree .
+ *= require font-awesome
  */
+
+$add-button-color: #fd887a
+$add-button-color-hover: #ed786a
+
+.top-bar-section
+  li.active:not(.has-form)
+    a:not(.button)
+      font-size: 16px
+      padding: 0 15px
+      line-height: 45px
+      color: white
+      background: $add-button-color
+
+.top-bar-section
+  li.active:not(.has-form)
+    a:not(.button):hover
+      background: $add-button-color-hover
+
