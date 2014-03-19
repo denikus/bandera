@@ -15,6 +15,8 @@ gem 'rails-i18n'
 gem 'omniauth-facebook'
 gem 'font-awesome-sass'
 gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-rvm'
+gem 'therubyracer'
 
 group :development do
   gem 'better_errors'
@@ -28,6 +30,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem "capistrano-rails"
 end
 group :development, :test do
   gem 'factory_girl_rails'
