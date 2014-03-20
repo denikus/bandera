@@ -1,7 +1,11 @@
-= form_for(resource) do |f|
+.authform
   h3= t("Add Video")
-  div.form-group
-    = f.label t("Youtube Video Url")
-    = f.text_field :url, :autofocus => true, class: 'form-control'
-  div.form-group
-    = f.submit 'Log in', :class => 'button right'
+  = form_for(@resource) do |f|
+    div.form-group
+      = f.label t("Youtube Video Url")
+      - if !@resource.errors.blank? && !@resource.errors.messages[:url].blank?
+        - @resource.errors.messages[:url].each do |error|
+          small.error.medium.input-text.error= error
+      = f.text_field :url, :autofocus => true, class: 'form-control'
+    div.form-group
+      = f.submit 'Save', :class => 'button right'
