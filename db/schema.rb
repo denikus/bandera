@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313080420) do
+ActiveRecord::Schema.define(version: 20140320081902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,10 +40,12 @@ ActiveRecord::Schema.define(version: 20140313080420) do
   create_table "videos", force: true do |t|
     t.integer  "user_id"
     t.string   "url",        null: false
+    t.string   "hash_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "videos", ["hash_id"], name: "index_videos_on_hash_id", using: :btree
   add_index "videos", ["user_id"], name: "index_videos_on_user_id", using: :btree
 
 end
