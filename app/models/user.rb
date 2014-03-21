@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
       if registered_user
         return registered_user
       else
+        auth.info.email ||= "#{auth.uid}@facebook.com"
         user = User.create(name:auth.extra.raw_info.name,
                             provider:auth.provider,
                             uid:auth.uid,
