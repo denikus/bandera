@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @videos = Video.order("id DESC").limit(1)
+    @videos = Video.order("id DESC").limit(10)
   end
 end
