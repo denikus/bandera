@@ -17,6 +17,8 @@ gem 'font-awesome-sass'
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-rvm'
 gem 'therubyracer'
+gem 'http_accept_language'
+gem 'geocoder'
 
 group :development do
   gem 'better_errors'

@@ -1,1 +1,6 @@
-home
+- @videos.each do |video|
+  .row
+    .small-2.large-4.columns
+      a href="#{video_path(video.hash_id)}" style="display: table-cell; vertical-align: middle;"
+        img src="http://img.youtube.com/vi/#{video.youtube_id}/1.jpg"
+        span= video.user.name

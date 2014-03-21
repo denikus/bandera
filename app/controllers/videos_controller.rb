@@ -6,19 +6,17 @@ class VideosController < ApplicationController
   end
 
   def create
-    #ap params[:video].merge({user_id: current_user.id})   ap video_params
     @resource = Video.new(video_params)
 
     if @resource.save
-      redirect_to action: "show", id: @resource.id
+      redirect_to action: "show", id: @resource.hash_id
     else
-      ap @resource.errors.messages
       render :new
     end
  end
 
   def show
-
+    @video = Video.find_by_hash_id(params[:id])
   end
 
   private
@@ -26,7 +24,7 @@ class VideosController < ApplicationController
 
   def video_params
     params[:video].merge!({user_id: current_user.id})
-    params.require(:video).permit(:url, :user_id)
+    params.require(:video).permit(:youtube_url, :user_id)
   end
 
 end

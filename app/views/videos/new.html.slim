@@ -6,6 +6,6 @@
       - if !@resource.errors.blank? && !@resource.errors.messages[:url].blank?
         - @resource.errors.messages[:url].each do |error|
           small.error.medium.input-text.error= error
-      = f.text_field :url, :autofocus => true, class: 'form-control'
+      = f.text_field :youtube_url, :autofocus => true, class: 'form-control'
     div.form-group
       = f.submit 'Save', :class => 'button right'
