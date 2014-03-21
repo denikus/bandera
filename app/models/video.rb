@@ -27,14 +27,10 @@ class Video < ActiveRecord::Base
 
     if self.youtube_id.nil?
       self.youtube_id = extract_video_id(self.youtube_url)
-      puts "self.youtube_id:"
-      ap self.youtube_id
     end
 
     if self.youtube_embed.nil?
       self.youtube_embed = youtube_embed_url(self.youtube_url)
-      puts "self.youtube_embed:"
-      ap self.youtube_embed
     end
   end
 
