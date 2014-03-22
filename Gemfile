@@ -19,6 +19,7 @@ gem 'capistrano-rvm'
 gem 'therubyracer'
 gem 'http_accept_language'
 gem 'geocoder'
+gem "autoprefixer-rails"
 
 group :development do
   gem 'better_errors'

@@ -1,6 +1,13 @@
-- @videos.each do |video|
-  .row
-    .small-2.large-4.columns
-      a href="#{video_path(video.hash_id)}" style="display: table-cell; vertical-align: middle;"
-        img src="http://img.youtube.com/vi/#{video.youtube_id}/1.jpg"
-        span= video.user.name
+ul.small-block-grid-4
+  - @videos.each do |video|
+    li
+      .video-container
+        a href="#{video_path(video.hash_id)}"
+          img.youtube-thumb src="http://img.youtube.com/vi/#{video.youtube_id}/mqdefault.jpg"
+
+        div.info-container
+          a href="#{video.user.profile_url}" target="_blank"
+            img.profile-thumb src="#{video.user.avatar_url}" style="width: 30px; height:30px;"
+            span= video.user.name
+            br
+            span= "Kiev, Ukraine"

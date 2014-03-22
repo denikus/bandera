@@ -28,6 +28,8 @@ GEM
     addressable (2.3.5)
     arel (4.0.2)
     atomic (1.1.15)
+    autoprefixer-rails (1.1.20140319)
+      execjs
     awesome_print (1.2.0)
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
@@ -329,6 +331,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   awesome_print
   better_errors
   binding_of_caller

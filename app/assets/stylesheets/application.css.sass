@@ -11,10 +11,17 @@
  *= require_self
  *= require_tree .
  *= require font-awesome
- */
+  */
 
 $add-button-color: #fd887a
 $add-button-color-hover: #ed786a
+$main-background: #E9E9E9
+//#E9E9E9
+//#F3F3F3
+
+$blog-grey-border: #F3F3F3
+
+//$block-grid-default-spacing: rem-calc(1000)
 
 .top-bar-section
   li.active:not(.has-form)
@@ -30,3 +37,29 @@ $add-button-color-hover: #ed786a
     a:not(.button):hover
       background: $add-button-color-hover
 
+main
+  padding-top: 10px
+  background-color: $main-background
+
+.small-block-grid-4
+  li
+    border-radius: 5px
+    div.video-container
+      border: 1px solid $blog-grey-border
+      background-color: #FFF
+      border-radius: 3px
+      padding: 3px
+      img.youtube-thumb
+        border-top-left-radius: 3px
+        border-top-right-radius: 3px
+      img.youtube-thumb:hover
+        transition: all 200ms ease-out
+        box-shadow: 0 0 6px 1px rgba(0, 140, 186, 0.5)
+
+    .info-container
+      margin-top: 10px
+      padding: 5px
+      border-top: 1px solid $blog-grey-border
+      font-size: 11px
+      img.profile-thumb
+        border-radius: 2px

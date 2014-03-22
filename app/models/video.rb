@@ -52,6 +52,6 @@ class Video < ActiveRecord::Base
     return nil if has_invalid_chars?(youtube_url)
 
     vid_id = extract_video_id(youtube_url)
-    %(<iframe width="#{width}" height="#{height}" src="http://www.youtube.com/embed/#{vid_id}" frameborder="0" allowfullscreen></iframe>)
+    %(<iframe width="#{width}" height="#{height}" src="http://www.youtube.com/embed/#{vid_id}?autoplay=1" frameborder="0" allowfullscreen></iframe>)
   end
 end
