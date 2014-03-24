@@ -1,13 +1,10 @@
-ul.small-block-grid-4
+.video-list
   - @videos.each do |video|
-    li
-      .video-container
-        a href="#{video_path(video.hash_id)}"
-          img.youtube-thumb src="http://img.youtube.com/vi/#{video.youtube_id}/mqdefault.jpg"
-
-        div.info-container
-          a href="#{video.user.profile_url}" target="_blank"
-            img.profile-thumb src="#{video.user.avatar_url}" style="width: 30px; height:30px;"
-            span= video.user.name
-            br
-            span= "Kiev, Ukraine"
+    .video-item
+      a href="#{video_path(video.hash_id)}" class="video-link"
+        img.video-thumb src="http://img.youtube.com/vi/#{video.youtube_id}/mqdefault.jpg"
+      div.info-box
+        a href="#{video.user.profile_url}" target="_blank" class="info-box__link"
+          img.info-box__profile-thumb src="#{video.user.avatar_url}"
+          div.info-box__profile-name= video.user.name
+          div.info-box__location= "Kiev, Ukraine"

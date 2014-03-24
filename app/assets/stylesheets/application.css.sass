@@ -40,26 +40,69 @@ $blog-grey-border: #F3F3F3
 main
   padding-top: 10px
   background-color: $main-background
+  float: none
 
-.small-block-grid-4
-  li
-    border-radius: 5px
-    div.video-container
-      background-color: #FFF
-      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.18)
-      border-radius: 3px
-      padding: 3px
-      img.youtube-thumb
-        border-top-left-radius: 3px
-        border-top-right-radius: 3px
-      img.youtube-thumb:hover
-        transition: all 200ms ease-out
-        box-shadow: 0 0 6px 1px rgba(0, 140, 186, 0.5)
+.video-list
+  margin: auto
+  position: relative
+  visibility: hidden
+.video-list.loaded
+  visibility: visible
+  
+.video-item
+  border-radius: 5px
+  background-color: #FFF
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.18)
+  border-radius: 3px
+  margin-bottom: 20px
 
-    .info-container
-      margin-top: 10px
-      padding: 5px
-      border-top: 1px solid $blog-grey-border
-      font-size: 11px
-      img.profile-thumb
-        border-radius: 2px
+.video-link
+  display: block
+  position: relative
+  -webkit-filter: grayscale(100%)
+  -webkit-transition: all 0.5s ease
+  -moz-transition: all 0.5s ease
+  -o-transition: all 0.5s ease
+  -ms-transition: all 0.5s ease
+  transition: all 0.5s ease
+.video-link:hover
+  -webkit-filter: grayscale(0)
+  transition: box-shadow 200ms ease-out
+  box-shadow: 0 0 6px 1px rgba(0, 140, 186, 0.5)
+
+.video-link__thumb
+  border-top-left-radius: 3px
+  border-top-right-radius: 3px
+  display: block
+
+.info-box
+  border-top: 1px solid $blog-grey-border
+  font-size: 11px
+  .info-box__link
+    display: block
+    padding: 10px 12px
+    font-weight: bold
+    line-height: 15px
+  .info-box__link:hover
+    background: #f1f1f1
+  .info-box__profile-thumb
+    border-radius: 2px
+    float: left
+    height: 30px
+    width: 30px
+    margin-right: 5px
+  .info-box__profile-name
+    white-space: nowrap
+    overflow: hidden
+    -ms-text-overflow: ellipsis
+    text-overflow: ellipsis
+    color: #717171
+    display: block
+  .info-box__location
+    overflow: hidden
+    white-space: nowrap
+    overflow: hidden
+    -ms-text-overflow: ellipsis
+    text-overflow: ellipsis
+    color: #b7b7b7
+

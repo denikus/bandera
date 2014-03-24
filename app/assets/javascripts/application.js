@@ -10,10 +10,25 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
+//= require imagesloaded.pkgd.min
+//= require masonry.pkgd.min
 //= require foundation
 //= require_tree .
 $(function() {
-  $(document).foundation();
+    $(document).foundation();
+    var $videoList = $('.video-list');
+
+    $videoList.imagesLoaded(function(){
+        $videoList.addClass('loaded');
+        $videoList.masonry({
+          // options...
+          itemSelector: '.video-item',
+          columnWidth: 320,
+          gutter: 20,
+          isFitWidth: true
+        });
+    });
 });
