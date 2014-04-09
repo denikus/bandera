@@ -2,6 +2,9 @@ ru:
   "Add Video": "Добавить видео"
   "Youtube Video Url": "Ссылка на видео Youtube"
   "About": "О Проекте"
+  "Detecting your country and city": "Определяем вашу страну и город"
+  "cancel": "отменить"
+  "remove": "удалить"
   date:
     abbr_day_names:
     - Вс

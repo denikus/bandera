@@ -23,7 +23,7 @@ class VideosController < ApplicationController
 
   def video_params
     params[:video].merge!({user_id: current_user.id})
-    params.require(:video).permit(:youtube_url, :user_id)
+    params.require(:video).permit(:youtube_url, :user_id, :latitude, :longitude, :city, :country)
   end
 
 end

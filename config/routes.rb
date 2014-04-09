@@ -8,4 +8,5 @@ Bandera::Application.routes.draw do
   root :to => "home#index"
   resources :videos
   get 'pages/about' => "pages#about"
+  get 'location/get' => "locations#show"
 end

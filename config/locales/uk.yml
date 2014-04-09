@@ -2,6 +2,9 @@ uk:
   "Add Video": "Додати відео"
   "Youtube Video Url": "Посилання на відео Youtube"
   "About": "Про проект"
+  "Detecting your country and city": "Визначаємо вашу країну та місто"
+  "cancel": "відмінити"
+  "remove": "видалити"
   date:
     abbr_day_names:
     - нд.

@@ -1,11 +1,87 @@
 .authform
   h3= t("Add Video")
   = form_for(@resource) do |f|
+    = f.hidden_field :latitude, id: "video_latitude"
+    = f.hidden_field :longitude, id: "video_longitude"
+    = f.hidden_field :city, id: "video_city"
+    = f.hidden_field :country, id: "video_country"
     div.form-group
       = f.label t("Youtube Video Url")
-      - if !@resource.errors.blank? && !@resource.errors.messages[:url].blank?
-        - @resource.errors.messages[:url].each do |error|
+      - if !@resource.errors.blank? && !@resource.errors.messages[:youtube_url].blank?
+        - @resource.errors.messages[:youtube_url].each do |error|
           small.error.medium.input-text.error= error
       = f.text_field :youtube_url, :autofocus => true, class: 'form-control'
     div.form-group
+      label.location
+        = t("Detecting your country and city")
+        i.loading
+        span= " "
+        a.cancel-detect href="#" = t("cancel")
+    div.form-group
       = f.submit 'Save', :class => 'button right'
+javascript:
+
+  function success(position) {
+
+    $("label.location .cancel-detect").on("click", function() {
+      $("label.location").remove();
+    });
+
+    $.ajax({
+      url: "/location/get",
+      data: {latitude: position.coords.latitude, longitude:position.coords.longitude},
+      success: function(data, status) {
+        var location_str = "";
+        var remove_link = " <a href=\"#\" class=\"remove-detect\">" + "#{{t("remove")}}" + "</a>";
+
+        //if got location - fill coordinates and city-country fields
+        if (position.coords.latitude && position.coords.longitude) {
+          $("#video_latitude").val(position.coords.latitude);
+          $("#video_longitude").val(position.coords.longitude);
+        }
+
+        //if got city
+        if (data['city'] !== "") {
+          location_str += data['city'];
+          $("#video_city").val(data['city']);
+        }
+
+        //if got country
+        if (data['country'] !== "") {
+          location_str += ", " + data['country'];
+          $("#video_country").val(data['country']);
+        }
+
+        //if have location  then add link to remove it
+        if (location_str !== "") {
+          location_str += remove_link;
+        }
+
+        $("label.location").html(location_str)
+
+        //bind "remove location" link
+        $("label.location .remove-detect").on("click", function() {
+          //remove text
+          $("label.location").remove();
+
+          //clean fields with location
+          $("#video_latitude").val('');
+          $("#video_longitude").val('');
+          $("#video_city").val('');
+          $("#video_country").val('');
+
+        });
+      },
+      dataType: 'json'
+    });
+  }
+
+  $(function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success);
+    } else {
+      error('not supported');
+    }
+
+  });
+
