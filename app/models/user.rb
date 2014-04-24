@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-    ap auth
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
 
     if user
