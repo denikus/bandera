@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
 
+    city, country = auth[:info][:location].split(',') unless auth[:info][:location].nil?
+
+    city.strip!
+    country.strip!
+
     if user
       return user
     else
@@ -27,7 +32,9 @@ class User < ActiveRecord::Base
                             email: auth.info.email,
                             password: Devise.friendly_token[0,20],
                             avatar_url: auth.info.image,
-                            profile_url: auth.info.urls[:Facebook]
+                            profile_url: auth.info.urls[:Facebook],
+                            city: city,
+                            country: country
                           )
       end
     end
