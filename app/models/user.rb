@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
 
     city, country = auth[:info][:location].split(',') unless auth[:info][:location].nil?
 
+    city ||=""
+    country ||=""
+
     city.strip!
     country.strip!
 
