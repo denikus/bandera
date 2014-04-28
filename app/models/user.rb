@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
 
-    logger.debug "user info: #{auth.inspect}"
+    logger.info "user info: #{auth.inspect}"
 
     city, country = auth[:info][:location].split(',') unless auth[:info][:location].nil?
 
